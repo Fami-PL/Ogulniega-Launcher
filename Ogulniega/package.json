@@ -1,0 +1,41 @@
+{
+  "name": "ogulniega-launcher",
+  "version": "1.0.0",
+  "description": "Minecraft Launcher with Fabric Support - Ogulniega Edition",
+  "author": "Ogulniega <user@example.com>",
+  "main": "main/main.js",
+  "homepage": "./",
+  "scripts": {
+    "start": "ELECTRON_OZONE_PLATFORM_HINT=wayland electron .",
+    "dev": "ELECTRON_OZONE_PLATFORM_HINT=wayland electron . --dev",
+    "build": "electron-builder"
+  },
+  "dependencies": {
+    "axios": "^1.6.2",
+    "adm-zip": "^0.5.9",
+    "systeminformation": "^5.17.0"
+  },
+  "devDependencies": {
+    "electron": "^27.0.0",
+    "electron-builder": "^24.6.4"
+  },
+  "build": {
+    "appId": "com.ogulniega.launcher",
+    "productName": "Ogulniega Launcher",
+    "files": [
+      "main/**/*",
+      "render/**/*",
+      "assets/**/*",
+      "node_modules/**/*"
+    ],
+    "linux": {
+      "target": [
+        "AppImage"
+      ],
+      "icon": "assets/icon.png",
+      "category": "Game",
+      "maintainer": "Ogulniega <user@example.com>",
+      "artifactName": "Ogulniega-Launcher-Linux.AppImage"
+    }
+  }
+}

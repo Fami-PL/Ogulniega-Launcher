@@ -1,0 +1,26 @@
+const { contextBridge, ipcRenderer } = require("electron");
+
+contextBridge.exposeInMainWorld("api", {
+  getSystemRam: () => ipcRenderer.invoke("get-system-ram"),
+  getFabricVersions: () => ipcRenderer.invoke("get-fabric-versions"),
+  getInitData: () => ipcRenderer.invoke("get-init-data"),
+  launchGame: (data) => ipcRenderer.send("launch-game", data),
+  openModsFolder: (version) => ipcRenderer.invoke("open-mods-folder", version),
+  getInstanceSettings: (version) => ipcRenderer.invoke("get-instance-settings", version),
+  saveInstanceSettings: (version, settings) => ipcRenderer.invoke("save-instance-settings", version, settings),
+  getGlobalSettings: () => ipcRenderer.invoke("get-global-settings"),
+  saveGlobalSettings: (settings) => ipcRenderer.invoke("save-global-settings", settings),
+  deleteAssets: () => ipcRenderer.invoke("delete-assets"),
+  reinstallJava: () => ipcRenderer.invoke("reinstall-java"),
+  resetSettings: () => ipcRenderer.invoke("reset-settings"),
+  copyLogs: (version) => ipcRenderer.invoke("copy-logs", version),
+  checkDependencies: () => ipcRenderer.invoke("check-dependencies"),
+  onStatus: (callback) => ipcRenderer.on("status", (event, data) => callback(data)),
+  onProgressBar: (callback) => ipcRenderer.on("progress-bar", (event, data) => callback(data)),
+  onSystemStats: (callback) => ipcRenderer.on("system-stats", (event, data) => callback(data)),
+  downloadMod: (data) => ipcRenderer.invoke("download-mod", data),
+  getInstalledModIds: (version) => ipcRenderer.invoke("get-installed-mod-ids", version),
+  getModsList: (version) => ipcRenderer.invoke("get-mods-list", version),
+  deleteMod: (data) => ipcRenderer.invoke("delete-mod", data),
+  toggleModStatus: (data) => ipcRenderer.invoke("toggle-mod-status", data),
+});
