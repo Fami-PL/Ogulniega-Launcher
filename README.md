@@ -65,3 +65,5 @@ Jeśli masz problem z fokusem myszki, launcher automatycznie stosuje poprawkę *
 ---
 
 *Stworzone z pasją dla polskiej społeczności Minecrafta przez **Famileusz**. 🇵🇱🐐*
+<img width="1030" height="758" alt="Screenshot_20251231_135826" src="https://github.com/user-attachments/assets/5f3573bb-3dfa-4b01-bda5-5ae8ad057982" />
+
